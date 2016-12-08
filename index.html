@@ -59,6 +59,24 @@
 				</section>
 
 				<section>
+					<pre><code class="hlpy" data-trim contenteditable>
+def get_arch(total_virtual_memory, platform, platform_version):
+    if total_virtual_memory:
+        if int(total_virtual_memory) < 2684354560:
+            return 'x86'
+        elif int(total_virtual_memory) > 2684354560:
+            return 'amd64'
+        elif platform == 'Mac OS X':
+            return 'amd64'
+        else:
+            if 'i686' in platform_version:
+                return 'x86'
+            elif 'x86_64' in platform_version:
+                return 'amd64'
+					</code></pre>
+				</section>
+
+				<section>
 					<h2>Steps to calculate correlations</h2>
 					<p>Exclude attribute-value pairs that have low percentages (&lt; 15%)</p>
 				</section>
